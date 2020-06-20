@@ -1,15 +1,16 @@
+#[allow(non_camel_case_types)]
 pub enum OpCode {
     OP_RETURN,
 }
 
 pub struct Chunk {
-    code: Vec<u8>,
+    pub code: Vec<OpCode>,
 }
 
-pub fn writeChunk(chunk: &mut Chunk, byte: u8) {
+pub fn write_chunk(chunk: &mut Chunk, byte: OpCode) {
     chunk.code.push(byte);
 }
 
-pub fn freeChunk(chunk: &mut Chunk) {
+pub fn free_chunk(chunk: &mut Chunk) {
     chunk.code.clear();
 }
